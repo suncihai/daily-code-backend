@@ -9,65 +9,41 @@ import org.springframework.stereotype.Service;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-
 import java.util.List;
+import java.sql.Timestamp;
 
 @Service
 public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public ApiResponse getUsers() {
-        List<User> list = userRepository.findAll();
-        if( list == null) {
-            return ApiResponse.createFailure(ApiCode.Common.FAILURE);
-        }
-
-        return ApiResponse.createSuccess(ApiCode.Common.SUCCESS, JSONArray.fromObject(list));
-    }
-
-    public ApiResponse findUser(String name) {
-        User find = userRepository.findUser(name);
-        if( find == null) {
-            return ApiResponse.createFailure(ApiCode.User.FINDFAILURE);
-        }
-        return ApiResponse.createSuccess(ApiCode.Common.SUCCESS, JSONObject.fromObject(find));
-    }
-
-    public ApiResponse adduser(String name, Integer age) {
+    public ApiResponse register(String username, String password) {
         JSONObject response = new JSONObject();
-        User find = userRepository.findUser(name);
+        User find = userRepository.findUser(username);
         if(find != null) {
-            return ApiResponse.createFailure(ApiCode.User.ADDFAILURE);
+            return ApiResponse.createFailure(ApiCode.User.REGISTERFAILURE);
         }
 
         User user = new User();
-        user.setAge(age);
-        user.setName(name);
-        response.put("name",user.getName());
-        response.put("age",user.getAge());
+        user.setUserName(username);
+        user.setPassword(password);
+        response.put("name",user.getUserName());
         userRepository.save(user);
 
         return ApiResponse.createSuccess(ApiCode.User.ADDSUCCESS, response);
     }
 
-    public ApiResponse deleteUser(String name) {
-        List<User> list = userRepository.findAll();
-        boolean find = false;
-        for(int i = 0;i < list.size();) {
-            if(list.get(i).getName().equals(name)) {
-                find = true;
-                userRepository.delete(list.get(i));
-                list.remove(list.get(i));
-            }else{
-                i++;
-            }
+    public ApiResponse login(String username, String password) {
+        JSONObject response = new JSONObject();
+        User find = userRepository.findUser(username);
+        if(find == null) {
+            return ApiResponse.createFailure(ApiCode.User.LOGIN_USERNAME_FAILURE);
         }
 
-        if(find) {
-            return ApiResponse.createSuccess(ApiCode.User.DELETESUCCESS);
-        }else {
-            return ApiResponse.createFailure(ApiCode.User.DELETEFAILURE);
+        if(find.getPassword().equals(password)) {
+            return ApiResponse.createSuccess(ApiCode.User.ADDSUCCESS, response);
+        }else{
+            return ApiResponse.createFailure(ApiCode.User.LOGIN_PASSWORD_FAILURE);
         }
     }
 }

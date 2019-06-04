@@ -3,23 +3,23 @@ package dev.local.todo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 public class User {
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
    @Column(nullable = false)
-    private String name;
+    private String username;
 
    @Column(nullable = false)
-    private Integer age;
+    private String password;
 
    public User(){}
 
-    public User(String name, Integer age, String username, String password) {
-        this.name = name;
-        this.age = age;
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
     public Long getId() {
@@ -30,20 +30,20 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String username) {
+        this.username = username;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }
