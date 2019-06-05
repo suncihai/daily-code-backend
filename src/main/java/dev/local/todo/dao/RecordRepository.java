@@ -17,6 +17,4 @@ public interface RecordRepository extends JpaRepository<Record, Long>{
     @Query("from Record u where u.username=:username")
     Record findRecord(@Param("username") String username);
 
-//    @Query("from Record where u.username=:username")
-//    List<Record> findRecord(@Param("username") String username);
 }

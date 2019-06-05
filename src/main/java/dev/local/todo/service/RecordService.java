@@ -11,10 +11,7 @@ import org.springframework.stereotype.Service;
 import dev.local.todo.util.LocalDateTimeUtil;
 import java.sql.Timestamp;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Date;
-import java.util.Calendar;
+import java.util.*;
 
 @Service
 public class RecordService {
@@ -34,9 +31,9 @@ public class RecordService {
         List<List<Record>> lastMonthRecord = filterRecord(record, -1);
         List<List<Record>> currentMonthRecord = filterRecord(record, 0);
 
-        response.put("previousMonthRecord", previousMonthRecord);
+        response.put("prevMonthRecord", previousMonthRecord);
         response.put("lastMonthRecord", lastMonthRecord);
-        response.put("currentMonthRecord", currentMonthRecord);
+        response.put("currMonthRecord", currentMonthRecord);
 
         return ApiResponse.createSuccess(ApiCode.User.ADDSUCCESS, response);
     }
@@ -64,5 +61,14 @@ public class RecordService {
             result.add(list);
         }
         return result;
+    }
+
+    public ApiResponse submitRecords(String username, int[] problems, Long timestamp, Boolean success) {
+
+        JSONObject response = new JSONObject();
+
+        System.out.println("problems "+ Arrays.toString(problems));
+
+        return ApiResponse.createSuccess(ApiCode.User.ADDSUCCESS, response);
     }
 }
