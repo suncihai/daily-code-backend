@@ -10,6 +10,9 @@ public class Problem {
     private Long id;
 
    @Column(nullable = false)
+    private int number;
+
+   @Column(nullable = false)
     private String name;
 
    @Column(nullable = false)
@@ -23,7 +26,8 @@ public class Problem {
 
    public Problem(){}
 
-    public Problem(String name, String category, String difficulty, String tag) {
+    public Problem(int number, String name, String category, String difficulty, String tag) {
+        this.number = number;
         this.name = name;
         this.category = category;
         this.difficulty = difficulty;
@@ -36,6 +40,14 @@ public class Problem {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public String getName() {

@@ -1,6 +1,7 @@
 package dev.local.todo.model;
 
 import javax.persistence.*;
+import org.joda.time.DateTime;
 import java.sql.Timestamp;
 
 @Entity
@@ -11,7 +12,7 @@ public class Record {
     private Long id;
 
    @Column(nullable = false)
-    private String user;
+    private String username;
 
    @Column(nullable = false)
     private int problem;
@@ -24,8 +25,8 @@ public class Record {
 
    public Record(){}
 
-    public Record(String user, int problem, Timestamp createTime, boolean success) {
-        this.user = user;
+    public Record(String username, int problem, Timestamp createTime, boolean success) {
+        this.username = username;
         this.problem = problem;
         this.createTime = createTime;
         this.success = success;
@@ -39,12 +40,12 @@ public class Record {
         this.id = id;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getProblem() {

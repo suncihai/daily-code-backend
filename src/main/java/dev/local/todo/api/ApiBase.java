@@ -41,7 +41,7 @@ public abstract class ApiBase {
             validate();
         } catch (Exception e) {
             subMsg = ""; //= e.getMessage();
-            code = ApiCode.Common.PARAM_ERROR;
+            code = ApiCode.Common.FAILURE;
             return ApiResponse.createFailure(code);
         }
 
@@ -63,7 +63,7 @@ public abstract class ApiBase {
             return data;
 
         } catch (Exception e) {
-            code = ApiCode.Common.PARAM_ERROR;
+            code = ApiCode.Common.FAILURE;
         }
 
         return ApiResponse.createFailure(code);
