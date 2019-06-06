@@ -9,6 +9,7 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import dev.local.todo.util.LocalDateTimeUtil;
+import org.apache.commons.lang3.StringUtils;
 import java.sql.Timestamp;
 
 import java.util.*;
@@ -63,11 +64,20 @@ public class RecordService {
         return result;
     }
 
-    public ApiResponse submitRecords(String username, int[] problems, Long timestamp, Boolean success) {
+    public ApiResponse submitRecords(String username, String problems, Long timestamp, Boolean success) {
 
         JSONObject response = new JSONObject();
 
-        System.out.println("problems "+ Arrays.toString(problems));
+        String[] problemList = new String[]{};
+        if(StringUtils.isNoneBlank(problems)) {
+            problemList = problems.split("-");
+        }
+
+        for(int i = 0; i < problemList.length; i++) {
+            Timestamp ts= new Timestamp(timestamp);
+            Record record = new Record(username, Integer.valueOf(problemList[i]), ts, success);
+            recordRepository.save(record);
+        }
 
         return ApiResponse.createSuccess(ApiCode.User.ADDSUCCESS, response);
     }

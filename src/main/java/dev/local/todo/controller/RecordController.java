@@ -53,7 +53,7 @@ public class RecordController {
    @ApiOperation(value = "submit records", response = Iterable.class)
    @ApiImplicitParams({
            @ApiImplicitParam(name = "username", value = "username, e.g. peter@gmail.comr", required = true, dataType = "String", paramType = "query"),
-           @ApiImplicitParam(name = "problems", value = "array of problems, e.g. [2,15,34]", required = true, dataType = "int[]", paramType = "query"),
+           @ApiImplicitParam(name = "problems", value = "array of problems, e.g. 1,4,10", required = true, dataType = "String", paramType = "query"),
            @ApiImplicitParam(name = "timestamp", value = "submit time, e.g. 1559777307000", required = true, dataType = "Long", paramType = "query"),
            @ApiImplicitParam(name = "success or not of problem", value = ", e.g. true", required = true, dataType = "Boolean", paramType = "query"),
    })
@@ -66,7 +66,7 @@ public class RecordController {
    }
    )
    @RequestMapping("/submit_records")
-   public @ResponseBody ApiResponse submitRecords(final String username, final int[] problems, final Long timestamp, final Boolean success) {
+   public @ResponseBody ApiResponse submitRecords(final String username, final String problems, final Long timestamp, final Boolean success) {
       return new ApiBase() {
          @Override
          protected void validate() throws Exception {
