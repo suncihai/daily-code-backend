@@ -82,4 +82,31 @@ public class UserController {
       }.run();
    }
 
+   @ApiOperation(value = "Send Email", response = Iterable.class)
+   @ApiImplicitParams({
+           @ApiImplicitParam(name = "email", value = "email, e.g. peter@gmail.comr", required = true, dataType = "String", paramType = "query"),
+   })
+   @ApiResponses(value = {
+           @io.swagger.annotations.ApiResponse(code = 200, message = "" +
+                   "说明       | code码 <br/>" +
+                   "成功       | 0 <br/>" +
+                   "失败       | -1 <br/>"
+           )
+   }
+   )
+   @RequestMapping("/send-email")
+   public @ResponseBody ApiResponse SendEmail(final String email) {
+      return new ApiBase() {
+         @Override
+         protected void validate() throws Exception {
+            Validate.notNull(email,"email is empty");
+         }
+
+         @Override
+         protected ApiResponse process() throws Exception {
+            return userService.sendEmail(email);
+         }
+      }.run();
+   }
+
 }

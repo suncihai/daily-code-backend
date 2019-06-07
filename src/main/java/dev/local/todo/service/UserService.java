@@ -4,11 +4,14 @@ import dev.local.todo.api.*;
 import dev.local.todo.dao.UserRepository;
 import dev.local.todo.model.User;
 import io.swagger.annotations.Api;
+import dev.local.todo.util.JavaMailUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
 import java.util.List;
 import java.sql.Timestamp;
 
@@ -16,6 +19,9 @@ import java.sql.Timestamp;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private JavaMailUtil javaMailUtil;
 
     public ApiResponse register(String username, String password) {
         JSONObject response = new JSONObject();
@@ -43,6 +49,17 @@ public class UserService {
         if(find.getPassword().equals(password)) {
             return ApiResponse.createSuccess(ApiCode.User.ADDSUCCESS, response);
         }else{
+            return ApiResponse.createFailure(ApiCode.User.LOGIN_PASSWORD_FAILURE);
+        }
+    }
+
+    public ApiResponse sendEmail(String email) {
+        JSONObject response = new JSONObject();
+        try {
+            javaMailUtil.sendSimpleEmail("happydailycode@gmail.com", new String[] { email },
+                    new String[] {}, "Reminder from Daily Code", "Please practise more problems");
+            return ApiResponse.createSuccess(ApiCode.User.ADDSUCCESS, response);
+        } catch (Exception e) {
             return ApiResponse.createFailure(ApiCode.User.LOGIN_PASSWORD_FAILURE);
         }
     }

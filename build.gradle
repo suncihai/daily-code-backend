@@ -41,10 +41,12 @@ dependencies {
     compile 'io.springfox:springfox-swagger2:2.3.0'
     compile 'io.springfox:springfox-swagger-ui:2.3.0'
     compile('net.sf.json-lib:json-lib:2.4:jdk15')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile(
         [group: 'io.opencensus', name: 'opencensus-api', version: '0.12.2'],
         [group: 'io.opencensus', name: 'opencensus-exporter-trace-stackdriver', version: '0.12.2'],
-        [group: 'io.opencensus', name: 'opencensus-impl', version:'0.12.2']
+        [group: 'io.opencensus', name: 'opencensus-impl', version:'0.12.2'],
+        [group: 'org.springframework.boot', name: 'spring-boot-starter-mail']
     )
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
