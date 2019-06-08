@@ -53,14 +53,4 @@ public class UserService {
         }
     }
 
-    public ApiResponse sendEmail(String email) {
-        JSONObject response = new JSONObject();
-        try {
-            javaMailUtil.sendSimpleEmail("happydailycode@gmail.com", new String[] { email },
-                    new String[] {}, "Reminder from Daily Code", "Please practise more problems");
-            return ApiResponse.createSuccess(ApiCode.User.ADDSUCCESS, response);
-        } catch (Exception e) {
-            return ApiResponse.createFailure(ApiCode.User.LOGIN_PASSWORD_FAILURE);
-        }
-    }
 }

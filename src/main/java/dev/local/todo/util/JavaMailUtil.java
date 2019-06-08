@@ -16,6 +16,8 @@ import org.springframework.util.StopWatch;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+import java.util.Map;
+
 @Component
 public class JavaMailUtil {
     private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -26,9 +28,23 @@ public class JavaMailUtil {
     @Autowired
     private JavaMailSender mailSender;
 
+    @Autowired
+    private TemplateEngine templateEngine;
+
     public void sendSimpleEmail(String deliver, String[] receivers, String[] carbonCopys, String subject, String text)
             throws Exception {
         sendMimeMail(deliver, receivers, carbonCopys, subject, text, false, null);
+    }
+
+    public void sendTemplateEmail(String deliver, String[] receivers, String[] carbonCopys, String subject, String thymeleafTemplatePath,
+                                  Map<String, Object> thymeleafTemplateVariable) throws Exception {
+        String text = null;
+        if (thymeleafTemplateVariable != null && thymeleafTemplateVariable.size() > 0) {
+            Context context = new Context();
+            thymeleafTemplateVariable.forEach((key, value)->context.setVariable(key, value));
+            text = templateEngine.process(thymeleafTemplatePath, context);
+        }
+        sendMimeMail(deliver, receivers, carbonCopys, subject, text, true, null);
     }
 
     private void sendMimeMail(String deliver, String[] receivers, String[] carbonCopys, String subject, String text,

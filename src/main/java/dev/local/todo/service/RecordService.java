@@ -3,6 +3,8 @@ package dev.local.todo.service;
 import dev.local.todo.api.ApiCode;
 import dev.local.todo.api.ApiResponse;
 import dev.local.todo.dao.RecordRepository;
+import dev.local.todo.dao.ProblemRepository;
+import dev.local.todo.model.Problem;
 import dev.local.todo.model.Record;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -18,6 +20,9 @@ import java.util.*;
 public class RecordService {
     @Autowired
     private RecordRepository recordRepository;
+
+    @Autowired
+    private ProblemRepository problemRepository;
 
     public ApiResponse getRecord(String username) {
         JSONObject response = new JSONObject();
@@ -80,5 +85,45 @@ public class RecordService {
         }
 
         return ApiResponse.createSuccess(ApiCode.User.ADDSUCCESS, response);
+    }
+
+    public List<JSONObject> trackRecord(Date date, int[] days) {
+        if(days == null || days.length == 0) {
+            days = new int[]{-3};
+        }
+
+        List<Record> record = recordRepository.findAll();
+        List<Problem> problems = problemRepository.findAll();
+        List<Integer> nums = new LinkedList<>();
+        List<JSONObject> result = new JSONArray();
+
+        for(int i = 0; i < days.length; i++) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.DATE, days[i]);
+            Date d = calendar.getTime();
+            Long dayStart = LocalDateTimeUtil.getStartOfDay(d);
+            Long dayEnd = LocalDateTimeUtil.getEndOfDay(d);
+            for(int j = 0; j < record.size(); j ++) {
+                Long timestamp = record.get(j).getCreateTime().getTime();
+                if( timestamp > dayStart && timestamp < dayEnd) {
+                    nums.add(record.get(j).getProblem());
+                }else if( timestamp > dayEnd) {
+                    break;
+                }
+            }
+        }
+
+        for(int k = 0; k < problems.size(); k++) {
+            for(int l = 0; l < nums.size(); l++) {
+                JSONObject problem = new JSONObject();
+                if(problems.get(k).getNumber() == nums.get(l)) {
+                    problem.put("number", problems.get(k).getNumber());
+                    problem.put("name", problems.get(k).getName());
+                    result.add(problem);
+                }
+            }
+        }
+
+        return result;
     }
 }
