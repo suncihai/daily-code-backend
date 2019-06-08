@@ -48,7 +48,7 @@ public class ScheduleUtil {
 //                    new String[] {}, "Reminder from Daily Code", text.toString());
             String thymeleafTemplatePath = "EmailTemplate";
             Map<String, Object> thymeleafTemplateVariable = new HashMap<String, Object>();
-            thymeleafTemplateVariable.put("code", text.toString());
+            thymeleafTemplateVariable.put("problems", problems);
             javaMailUtil.sendTemplateEmail("happydailycode@gmail.com",
                     new String[] { "suncihai@gmail.com" },
                     new String[] {},
