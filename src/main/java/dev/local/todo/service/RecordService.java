@@ -37,9 +37,16 @@ public class RecordService {
         List<List<Record>> lastMonthRecord = filterRecord(record, -1);
         List<List<Record>> currentMonthRecord = filterRecord(record, 0);
 
+        int prevMonthCount = countRecord(record, -2);
+        int lastMonthCount = countRecord(record, -1);
+        int currMonthCount = countRecord(record, 0);
+
         response.put("prevMonthRecord", previousMonthRecord);
         response.put("lastMonthRecord", lastMonthRecord);
         response.put("currMonthRecord", currentMonthRecord);
+        response.put("prevMonthCount", prevMonthCount);
+        response.put("lastMonthCount", lastMonthCount);
+        response.put("currMonthCount", currMonthCount);
 
         return ApiResponse.createSuccess(ApiCode.User.ADDSUCCESS, response);
     }
@@ -67,6 +74,29 @@ public class RecordService {
             result.add(list);
         }
         return result;
+    }
+
+    public int countRecord(List<Record> record, int monthCount) {
+        int count = 0;
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, monthCount); //get the month
+        calendar.set(Calendar.DAY_OF_MONTH, 1);// From 1st of the Month
+        int dayNumOfMonth = LocalDateTimeUtil.getDaysByYearMonth(calendar.getTime());
+
+        for (int i = 0; i < dayNumOfMonth; i++, calendar.add(Calendar.DATE, 1)) {
+            Date d = calendar.getTime();
+            Long dayStart = LocalDateTimeUtil.getStartOfDay(d);
+            Long dayEnd = LocalDateTimeUtil.getEndOfDay(d);
+            for(int j = 0; j < record.size(); j ++) {
+                Long timestamp = record.get(j).getCreateTime().getTime();
+                if( timestamp > dayStart && timestamp < dayEnd) {
+                    count++;
+                }else if( timestamp > dayEnd) {
+                    break;
+                }
+            }
+        }
+        return count;
     }
 
     public ApiResponse submitRecords(String username, String problems, Long timestamp, Boolean success) {

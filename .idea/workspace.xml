@@ -4,6 +4,8 @@
     <list default="true" id="63b94fa3-5109-413a-ba8c-3eb4bc79a2f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/todo.daily-code-backend/dev/local/todo/util/ScheduleUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo.daily-code-backend/dev/local/todo/util/ScheduleUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/local/todo/service/RecordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/local/todo/service/RecordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/local/todo/util/ScheduleUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/local/todo/util/ScheduleUtil.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,10 +22,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dev/local/todo/util/JavaMailUtil.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dev/local/todo/util/ScheduleUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="59" column="39" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
+            <state relative-caret-position="374">
+              <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,14 +33,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dev/local/todo/util/ScheduleUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="47" column="84" selection-start-line="47" selection-start-column="84" selection-end-line="47" selection-end-column="84" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="120">
+                <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -52,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/dev/local/todo/service/RecordService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1590">
-              <caret line="120" column="67" selection-start-line="120" selection-start-column="67" selection-end-line="120" selection-end-column="67" />
+            <state relative-caret-position="286">
+              <caret line="46" column="55" lean-forward="true" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,7 +127,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dev/local/todo/controller/RecordController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
+            <state relative-caret-position="-224">
               <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
             </state>
           </provider>
@@ -187,24 +189,24 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/dev/local/todo/Application.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/dev/local/todo/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/dev/local/todo/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dev/local/todo/service/RecordService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/package.json" />
         <option value="$PROJECT_DIR$/src/main/java/dev/local/todo/util/JavaMailUtil.java" />
         <option value="$PROJECT_DIR$/src/main/resources/email/Email.html" />
         <option value="$PROJECT_DIR$/src/main/resources/EmailTemplate.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/EmailTemplate.html" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/dev/local/todo/util/ScheduleUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dev/local/todo/service/RecordService.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="145" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="600" />
     <option name="y" value="23" />
-    <option name="width" value="1422" />
-    <option name="height" value="954" />
+    <option name="width" value="1080" />
+    <option name="height" value="959" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -393,12 +395,16 @@
       <workItem from="1560007876161" duration="448000" />
       <workItem from="1560015759776" duration="482000" />
       <workItem from="1560036119520" duration="460000" />
-      <workItem from="1560130576278" duration="106000" />
+      <workItem from="1560130576278" duration="783000" />
+      <workItem from="1560190141101" duration="1685000" />
+      <workItem from="1560214707759" duration="687000" />
+      <workItem from="1560262558090" duration="933000" />
+      <workItem from="1560300971070" duration="629000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34662000" />
+    <option name="totallyTimeSpent" value="39273000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -410,9 +416,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="145" y="23" width="1422" height="954" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="959" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23913044" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2026862" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -422,14 +429,14 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24941996" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.084198385" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.3994253" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3297414" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32988507" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.3297414" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.21113689" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.21113689" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32947975" />
@@ -607,16 +614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="120">
-            <caret line="8" selection-start-line="8" selection-end-line="8" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dev/local/todo/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -645,20 +642,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/local/todo/util/ScheduleUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="120">
+            <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/local/todo/service/RecordService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="120" column="67" selection-start-line="120" selection-start-column="67" selection-end-line="120" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -716,13 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/local/todo/controller/RecordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dev/local/todo/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
@@ -750,10 +750,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/local/todo/util/ScheduleUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/local/todo/controller/RecordController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="47" column="84" selection-start-line="47" selection-start-column="84" selection-end-line="47" selection-end-column="84" />
+        <state relative-caret-position="-224">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dev/local/todo/service/RecordService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="46" column="55" lean-forward="true" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -30,7 +30,7 @@ public class ScheduleUtil {
     private final Logger logger = LoggerFactory.getLogger(getClass());
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-    @Scheduled(cron = "0 30 10,20 * * ?")
+    @Scheduled(cron = "0 00 11,21 * * ?")
     public void sendReminderEmail() {
         List<JSONObject> problems = recordService.trackRecord(new Date(), new int[]{-3,-7});
         StringBuilder text = new StringBuilder();
