@@ -23,13 +23,17 @@ public class Record {
    @Column(nullable = false)
     private boolean success;
 
+   @Column(nullable = false)
+    private String language;
+
    public Record(){}
 
-    public Record(String username, int problem, Timestamp createTime, boolean success) {
+    public Record(String username, int problem, Timestamp createTime, boolean success, String language) {
         this.username = username;
         this.problem = problem;
         this.createTime = createTime;
         this.success = success;
+        this.language = language;
     }
 
     public Long getId() {
@@ -71,4 +75,8 @@ public class Record {
     public void setSuccess(boolean success) {
        this.success = success;
     }
+
+    public String getLanguage() { return language; }
+
+    public void setLanguage(String language) { this.language = language; }
 }

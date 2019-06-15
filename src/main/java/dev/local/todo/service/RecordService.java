@@ -99,7 +99,7 @@ public class RecordService {
         return count;
     }
 
-    public ApiResponse submitRecords(String username, String problems, Long timestamp, Boolean success) {
+    public ApiResponse submitRecords(String username, String problems, Long timestamp, Boolean success, String language) {
 
         JSONObject response = new JSONObject();
 
@@ -110,7 +110,7 @@ public class RecordService {
 
         for(int i = 0; i < problemList.length; i++) {
             Timestamp ts= new Timestamp(timestamp);
-            Record record = new Record(username, Integer.valueOf(problemList[i]), ts, success);
+            Record record = new Record(username, Integer.valueOf(problemList[i]), ts, success, language);
             recordRepository.save(record);
         }
 

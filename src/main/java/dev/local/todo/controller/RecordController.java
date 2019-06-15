@@ -56,6 +56,7 @@ public class RecordController {
            @ApiImplicitParam(name = "problems", value = "array of problems, e.g. 1,4,10", required = true, dataType = "String", paramType = "query"),
            @ApiImplicitParam(name = "timestamp", value = "submit time, e.g. 1559777307000", required = true, dataType = "Long", paramType = "query"),
            @ApiImplicitParam(name = "success or not of problem", value = ", e.g. true", required = true, dataType = "Boolean", paramType = "query"),
+           @ApiImplicitParam(name = "language", value = "javascript, e.g.java", required = true, dataType = "String", paramType = "query"),
    })
    @ApiResponses(value = {
            @io.swagger.annotations.ApiResponse(code = 200, message = "" +
@@ -66,7 +67,7 @@ public class RecordController {
    }
    )
    @RequestMapping("/submit_records")
-   public @ResponseBody ApiResponse submitRecords(final String username, final String problems, final Long timestamp, final Boolean success) {
+   public @ResponseBody ApiResponse submitRecords(final String username, final String problems, final Long timestamp, final Boolean success, String language) {
       return new ApiBase() {
          @Override
          protected void validate() throws Exception {
@@ -74,11 +75,12 @@ public class RecordController {
             Validate.notNull(problems,"username is empty");
             Validate.notNull(timestamp,"username is empty");
             Validate.notNull(success,"username is empty");
+            Validate.notNull(language,"language is empty");
          }
 
          @Override
          protected ApiResponse process() throws Exception {
-            return recordService.submitRecords(username, problems, timestamp, success);
+            return recordService.submitRecords(username, problems, timestamp, success, language);
          }
       }.run();
    }
