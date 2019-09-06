@@ -36,16 +36,17 @@ public class RecordController {
    }
    )
    @RequestMapping("/get_record")
-   public @ResponseBody ApiResponse getRecords(final String username) {
+   public @ResponseBody ApiResponse getRecords(final String username, int page) {
       return new ApiBase() {
          @Override
          protected void validate() throws Exception {
             Validate.notNull(username,"username is empty");
+            Validate.notNull(page,"page is empty");
          }
 
          @Override
          protected ApiResponse process() throws Exception {
-            return recordService.getRecord(username);
+            return recordService.getRecord(username, page);
          }
       }.run();
    }

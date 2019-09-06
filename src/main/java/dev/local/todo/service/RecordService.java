@@ -24,7 +24,7 @@ public class RecordService {
     @Autowired
     private ProblemRepository problemRepository;
 
-    public ApiResponse getRecord(String username) {
+    public ApiResponse getRecord(String username, int page) {
         JSONObject response = new JSONObject();
 
         List<Record> record = recordRepository.findAll();
@@ -33,13 +33,13 @@ public class RecordService {
             return ApiResponse.createFailure(ApiCode.User.REGISTERFAILURE);
         }
 
-        List<List<Record>> previousMonthRecord = filterRecord(record, -2);
-        List<List<Record>> lastMonthRecord = filterRecord(record, -1);
-        List<List<Record>> currentMonthRecord = filterRecord(record, 0);
+        List<List<Record>> previousMonthRecord = filterRecord(record, -2-3*(page-1));
+        List<List<Record>> lastMonthRecord = filterRecord(record, -1-3*(page-1));
+        List<List<Record>> currentMonthRecord = filterRecord(record, 0-3*(page-1));
 
-        int prevMonthCount = countRecord(record, -2);
-        int lastMonthCount = countRecord(record, -1);
-        int currMonthCount = countRecord(record, 0);
+        int prevMonthCount = countRecord(record, -2-3*(page-1));
+        int lastMonthCount = countRecord(record, -1-3*(page-1));
+        int currMonthCount = countRecord(record, 0-3*(page-1));
 
         response.put("prevMonthRecord", previousMonthRecord);
         response.put("lastMonthRecord", lastMonthRecord);
